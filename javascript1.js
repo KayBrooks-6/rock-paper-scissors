@@ -5,6 +5,9 @@
 
 // console.log(getComputerChoice(8));
 
+
+
+
 function getComputerChoice() {
     let i = Math.random();
      
@@ -38,3 +41,26 @@ function getHumanChoice() {
 // This function will prompt the user for 3 choices,
 // and will convert the response into lowercase and store in a variable.
 // Then it will test against 3 what if statements. 
+
+let humanScore = 0;
+let computerScore = 0;
+
+function playRound (humanChoice, getComputerChoice) {
+    for (let ) {
+
+    } if ((computerSelection && humanSelection === "scissors") || (computerSelection && humanSelection === "paper") || (computerSelection && humanSelection === "Rock, you potota")) {
+        alert("Tie");
+    } else if ((computerSelection === "Rock, you potota" && humanSelection === "scissors") || (computerSelection === ""scissors" && humanSelection === "paper") || (computerSelection === "paper" && humanSelection === "Rock, you potota")) {
+        alert("you lose!")
+        return computerScore++;
+    } else {
+        alert("you win!")
+        return humanScore++;
+    }
+}
+
+
+let humanSelection = getHumanChoice();
+let computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
