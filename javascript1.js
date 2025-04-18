@@ -27,9 +27,6 @@ function getHumanChoice() {
     }
 }
 
-// This function will prompt the user for 3 choices,
-// and will convert the response into lowercase and store in a variable.
-// Then it will test against 3 what if statements. 
 
 let humanScore = 0;
 let computerScore = 0;
@@ -58,15 +55,29 @@ let computerSelection = getComputerChoice();
 
 playRound(humanSelection, computerSelection);
 
-function playGame(playRound, humanScore, computerScore) {
-    for (let roundCount = 1, roundCount < 5, roundCount++) {
-        if (humanScore === 5 || computerScore === 5) {
-            alert("Finished game! Restart");
-            humanScore.textContent = 0;
-            computerScore.textContent = 0;
+// function playGame(playRound, humanScore, computerScore) {
+//     for (let roundCount = 1, roundCount < 5, roundCount++) {
+//         if (humanScore === 5 || computerScore === 5) {
+//             alert("Finished game! Restart");
+//             humanScore.textContent = 0;
+//             computerScore.textContent = 0;
 
-        } else {
-            playRound();
-        }
-    }
-}
+//         } else {
+//             playRound();
+//         }
+//     }
+// }
+
+const container = document.querySelector("#btnContainer");
+
+const content = document.createElement("div");
+content.classList.add("content");
+content.textContent = "Winner is `${}";
+
+btnContainer.appendChild(content);
+
+
+const buttons = document.querySelectorAll("button");
+buttons.forEach((button) => {
+    button.addEventListener("click", playRound);
+    });
