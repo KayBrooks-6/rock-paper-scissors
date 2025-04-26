@@ -12,18 +12,21 @@ function getComputerChoice() {
 
 getComputerChoice();
 
-// function getHumanChoice() {
-//     const greeting = prompt("Rock, Paper or Scissors");
-//     let humanChoiceLower = greeting.toLowerCase();
 
-//     if (humanChoiceLower === "scissors") {
-//         return "scissors";
-//     } else if (humanChoiceLower == "paper") {
-//         return "paper";
-//     } else {
-//         return "Rock, you potota";
-//     }
-// }
+
+// const btn = document.querySelector(".scissors");
+// btn.addEventListener("click", () => {
+//   alert("siccors");
+// });
+// const paper = document.querySelector(".paper");
+// paper.addEventListener("click", () => {
+//   alert("paper");
+// });
+// const rock = document.querySelector(".rock");
+// rock.addEventListener("click", () => {
+//   alert("rock");
+// });
+
 
 
 let humanScore = 0;
@@ -47,7 +50,7 @@ function playRound(humanSelection, getComputerChoice) {
     }
 }
 
-function ResultMessage (humanScore, computerScore) {
+function resultMessage (humanScore, computerScore) {
     if (humanScore === 5) {
         let para = document.createElement('p');
         para.textContent = "Congrats you, oh you sly potato!";
@@ -60,10 +63,9 @@ function ResultMessage (humanScore, computerScore) {
         }
 }
 
-let humanSelection = getHumanChoice();
+let humanSelection = "";
 let computerSelection = getComputerChoice();
 
-playRound(humanSelection, computerSelection);
 
 const container = document.querySelector("#results");
 
@@ -73,7 +75,18 @@ container.appendChild(content);
 
 
 const buttons = document.querySelectorAll("button");
+
 buttons.forEach((button) => {
+
+    button.addEventListener("click", () => {
+            if (button.id === "scissors") {
+                return humanSelection = "scissors";
+            } else if (button.id === "paper") {
+                return humanSelection = "paper";
+            } else {
+                return humanSelection = "Rock, you potota";
+            }
+        });
     button.addEventListener("click", playRound);
-    button.addEventListener("click", ResultMessage);
-})
+    button.addEventListener("click", resultMessage);
+});
