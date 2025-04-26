@@ -9,23 +9,21 @@ function getComputerChoice() {
         return "Rock, you potota";
     }
 }
-// function above will make a random number between 0 & 1, 
-// if the value is between a certain value it will choice one of the choices. 
 
 getComputerChoice();
 
-function getHumanChoice() {
-    const greeting = prompt("Rock, Paper or Scissors");
-    let humanChoiceLower = greeting.toLowerCase();
+// function getHumanChoice() {
+//     const greeting = prompt("Rock, Paper or Scissors");
+//     let humanChoiceLower = greeting.toLowerCase();
 
-    if (humanChoiceLower === "scissors") {
-        return "scissors";
-    } else if (humanChoiceLower == "paper") {
-        return "paper";
-    } else {
-        return "Rock, you potota";
-    }
-}
+//     if (humanChoiceLower === "scissors") {
+//         return "scissors";
+//     } else if (humanChoiceLower == "paper") {
+//         return "paper";
+//     } else {
+//         return "Rock, you potota";
+//     }
+// }
 
 
 let humanScore = 0;
@@ -49,35 +47,33 @@ function playRound(humanSelection, getComputerChoice) {
     }
 }
 
+function ResultMessage (humanScore, computerScore) {
+    if (humanScore === 5) {
+        let para = document.createElement('p');
+        para.textContent = "Congrats you, oh you sly potato!";
+        container.appendChild(para);
+        
+    } else if (computerScore === 5) {
+         let para = document.createElement('p');
+        para.textContent = "The Ai overlords won...";
+        container.appendChild(para);   
+        }
+}
 
 let humanSelection = getHumanChoice();
 let computerSelection = getComputerChoice();
 
 playRound(humanSelection, computerSelection);
 
-// function playGame(playRound, humanScore, computerScore) {
-//     for (let roundCount = 1, roundCount < 5, roundCount++) {
-//         if (humanScore === 5 || computerScore === 5) {
-//             alert("Finished game! Restart");
-//             humanScore.textContent = 0;
-//             computerScore.textContent = 0;
-
-//         } else {
-//             playRound();
-//         }
-//     }
-// }
-
-const container = document.querySelector("#btnContainer");
+const container = document.querySelector("#results");
 
 const content = document.createElement("div");
-content.classList.add("content");
-content.textContent = "Winner is `${}";
-
-btnContainer.appendChild(content);
+content.textContent = `computer score is ${computerScore}, and you are at ${humanScore}`;
+container.appendChild(content);
 
 
 const buttons = document.querySelectorAll("button");
 buttons.forEach((button) => {
     button.addEventListener("click", playRound);
-    });
+    button.addEventListener("click", ResultMessage);
+})
