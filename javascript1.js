@@ -30,10 +30,10 @@ function playRound(humanSelection, computerSelection) {
   
     if (loses) {
       alert("You lose!");
-      computerScore++;
+      computerScore +=1;
     } else {
       alert("You win!");
-      humanScore++;
+      humanScore += 1;
     }
   }
 
@@ -64,9 +64,9 @@ const buttons = document.querySelectorAll("button");
 buttons.forEach(button => {
     button.addEventListener("click", () => {
       // 1) figure out the human’s choice from the button’s ID
-      const humanSelection = button.id;                // "scissors", "paper" or "rock"
+      const humanSelection = button.id;               
       // 2) generate and store the computer’s choice
-      const computerSelection = getComputerChoice();   // returns the string
+      const computerSelection = getComputerChoice(); 
       // 3) play the round
       playRound(humanSelection, computerSelection);
       // 4) show the running score
