@@ -63,16 +63,13 @@ function resultMessage(humanScore, computerScore) {
 const buttons = document.querySelectorAll("button");
 buttons.forEach(button => {
     button.addEventListener("click", () => {
-      // 1) figure out the human’s choice from the button’s ID
+
       const humanSelection = button.id;               
-      // 2) generate and store the computer’s choice
       const computerSelection = getComputerChoice(); 
-      // 3) play the round
       playRound(humanSelection, computerSelection);
-      // 4) show the running score
       updateScoreDisplay();
-      // 5) check if someone reached 5
       resultMessage(humanScore, computerScore);
+      
     });
   });
 
